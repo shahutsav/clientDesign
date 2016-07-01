@@ -46,21 +46,27 @@ function build(which) {
         if(images[x][0]!==null) {
             var divEle = document.createElement('div');
             divEle.setAttribute('id','container');
-            for (var i = 1; i <= 2; i++) {
+            var tableEle = document.createElement('table');
+            var trEle = document.createElement('tr');
+            tableEle.appendChild(trEle);
+            for(var i=1;i<=2;i++){
+                var tdEle = document.createElement('td');
                 var imgEle = document.createElement('img');
-                var groupDiv = document.createElement('div');
                 imgEle.setAttribute('src', hold[0] + '/' + selOpt[selOpt.length - 1] + i + '.jpg');
-                imgEle.setAttribute('width', '96px');
-                imgEle.setAttribute('height', '96px');
-                groupDiv.appendChild(imgEle);
-                divEle.appendChild(groupDiv);
-                document.getElementById('main').appendChild(divEle);
+                imgEle.setAttribute('width','64px');
+                imgEle.setAttribute('height','64px');
+                tdEle.appendChild(imgEle);
+                trEle.appendChild(tdEle);
+                tableEle.appendChild(trEle);
+                document.getElementById('main').appendChild(tableEle);
             }
-            var vsEle = document.createElement('h5');
-            var vsTxt=document.createTextNode('VS');
+            var vsEle = document.createElement('td');
+            var vsTxt = document.createTextNode('VS');
             vsEle.appendChild(vsTxt);
-            document.getElementById('container').insertBefore(vsEle,document.getElementById('container').childNodes[1]);
-        }else{
+            document.getElementsByTagName('tr')[0].insertBefore(vsEle,document.getElementsByTagName('tr')[0].childNodes[1]);
+
+
+                }else{
             //generate an array of images for group stage
             var grDiv = document.createElement('div');
             for(var i=1;i<=images[x][1];i++){

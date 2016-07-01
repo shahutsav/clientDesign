@@ -35,7 +35,7 @@ var images=new Object();
 
 //  images[which][2][1]
 // team1,team2,[2,1],[2,3]
-    images['Copa16-GroupStage']=[null];
+    images['Copa16-GroupStage']=[null,16];
     images['Copa16-qf1']=['United States','Ecuador',[2,1],[null]];
     images['Copa16-qf2']=['Peru','Colombia',[0,0],[2,4]];
     images['Copa16-qf3']=['Argentina','Venezuela',[4,1],[null]];
@@ -44,7 +44,7 @@ var images=new Object();
     images['Copa16-sf2']=['Colombia','Chile',[0,2],[null]];
     images['Copa16-Finals16']=['Argentina','Chile',[0,0],[2,4]];
 
-    images['Euro12-GroupStage']=[null];
+    images['Euro12-GroupStage']=[null,16];
     images['Euro12-qf1']=['Portugal','Czech Republic',[1,0],[null]];
     images['Euro12-qf2']=['Germany','Greece',[4,2],[null]];
     images['Euro12-qf3']=['Spain','France',[2,0],[null]];
