@@ -42,8 +42,10 @@ function build(which) {
         }
         var x = selOpt[selOpt.length-1];
 
+        //generate images for other stages
         if(images[x][0]!==null) {
             var divEle = document.createElement('div');
+            divEle.setAttribute('id','container');
             for (var i = 1; i <= 2; i++) {
                 var imgEle = document.createElement('img');
                 var groupDiv = document.createElement('div');
@@ -54,7 +56,12 @@ function build(which) {
                 divEle.appendChild(groupDiv);
                 document.getElementById('main').appendChild(divEle);
             }
+            var vsEle = document.createElement('h5');
+            var vsTxt=document.createTextNode('VS');
+            vsEle.appendChild(vsTxt);
+            document.getElementById('container').insertBefore(vsEle,document.getElementById('container').childNodes[1]);
         }else{
+            //generate an array of images for group stage
             var grDiv = document.createElement('div');
             for(var i=1;i<=images[x][1];i++){
                 var grImg = document.createElement('img');
