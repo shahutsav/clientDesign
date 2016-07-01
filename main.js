@@ -38,12 +38,13 @@ function build(which) {
         var sel = document.getElementsByTagName('select');
         for (var i = 0; i < sel.length; i++) {
             selOpt.push((sel[i].options[sel[i].selectedIndex].value));
-            localStorage.setItem('select'+i,selOpt[i]);
+            localStorage.setItem('select' + i, selOpt[i]);
         }
         var x = selOpt[selOpt.length-1];
 
-        var divEle = document.createElement('div');
-            for (var i = 1; i<=2; i++) {
+        if(images[x][0]!==null) {
+            var divEle = document.createElement('div');
+            for (var i = 1; i <= 2; i++) {
                 var imgEle = document.createElement('img');
                 var groupDiv = document.createElement('div');
                 imgEle.setAttribute('src', hold[0] + '/' + selOpt[selOpt.length - 1] + i + '.jpg');
@@ -53,12 +54,25 @@ function build(which) {
                 divEle.appendChild(groupDiv);
                 document.getElementById('main').appendChild(divEle);
             }
+        }else{
+            var grDiv = document.createElement('div');
+            for(var i=1;i<=images[x][1];i++){
+                var grImg = document.createElement('img');
+                grImg.setAttribute('src',hold[0] + '/' + selOpt[selOpt.length - 1] + i + '.jpg');
+                grImg.setAttribute('width','64px');
+                grImg.setAttribute('height','64px');
+                grDiv.appendChild(grImg);
+                document.getElementById('main').appendChild(grDiv);
+            }
+        }
+
+
             //form goes here
             var fEle = document.createElement('form');
             fEle.setAttribute('id', 'contact');
             fEle.setAttribute('action', 'form.html');
             fEle.setAttribute('method', 'get');
-            fEle.setAttribute('class','form-style');
+            fEle.setAttribute('class', 'form-style');
             fEle.setAttribute('onsubmit', 'return validateForm(this)');
 
             //create a header for form
@@ -70,8 +84,8 @@ function build(which) {
             spEle.appendChild(spTxt);
             fHead.appendChild(spEle);
 
-        //append the header stuff to the form
-        fEle.appendChild(fHead);
+            //append the header stuff to the form
+            fEle.appendChild(fHead);
 
 
             //create first name element
@@ -86,8 +100,8 @@ function build(which) {
             fnEle.setAttribute('id', 'fName');
             fnLabel.appendChild(fnEle);
 
-        //append the first name to the form
-        fEle.appendChild(fnLabel);
+            //append the first name to the form
+            fEle.appendChild(fnLabel);
 
             //create last name element
             var lnLabel = document.createElement('label');
@@ -101,8 +115,8 @@ function build(which) {
             lnEle.setAttribute('id', 'lName');
             lnLabel.appendChild(lnEle);
 
-        //append the last name to the form
-        fEle.appendChild(lnLabel);
+            //append the last name to the form
+            fEle.appendChild(lnLabel);
 
             //create an email field
             var emLabel = document.createElement('label');
@@ -116,25 +130,25 @@ function build(which) {
             emEle.setAttribute('id', 'email');
             emLabel.appendChild(emEle);
 
-        //append the email field to the form
-        fEle.appendChild(emLabel);
+            //append the email field to the form
+            fEle.appendChild(emLabel);
 
             // create a submit button
             var btnLabel = document.createElement('label');
             var btnEle = document.createElement('button');
             btnEle.setAttribute('type', 'submit');
             btnEle.setAttribute('value', 'submit');
-            btnEle.setAttribute('class','button');
+            btnEle.setAttribute('class', 'button');
             var btnTxt = document.createTextNode('Submit');
             btnEle.appendChild(btnTxt);
             btnLabel.appendChild(btnEle);
 
-        //append the send button to the form
-        fEle.appendChild(btnLabel);
+            //append the send button to the form
+            fEle.appendChild(btnLabel);
 
-    //attach the form to the main div
-    document.getElementById('main').appendChild(fEle);
+            //attach the form to the main div
+            document.getElementById('main').appendChild(fEle);
 
         } //the form ends here
 
-    } //build function ends here
+    }//build function ends here
