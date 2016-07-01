@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form Submit</title>
+	<script type="text/javascript">
+		function abc() {
+
+			var str = localStorage.getItem('first');
+			var optEle = document.createTextNode(str);
+
+
+			document.getElementsByTagName('body')[0].appendChild(optEle);
+		}
+	</script>
+</head>
+<body onload="abc();">
+<h2> Form has been submitted </h2>
+
+</body>
+</html>
